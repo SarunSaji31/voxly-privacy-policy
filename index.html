@@ -6,91 +6,94 @@
   <title>Voxly AI Keyboard — Privacy Policy</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       max-width: 800px;
       margin: 0 auto;
       padding: 2em 1.5em;
       color: #1a1a1a;
       line-height: 1.7;
     }
-    h1 { font-size: 1.8em; color: #1A1A2E; }
-    h2 { font-size: 1.1em; color: #1A1A2E; margin-top: 2em; }
-    p  { margin: 0.8em 0; }
-    ul { padding-left: 1.5em; }
-    li { margin: 0.4em 0; }
-    .updated { color: #666; font-size: 0.9em; }
-    a  { color: #673AB7; }
+    h1 { font-size: 1.8em; color: #1A1A2E; margin-bottom: 0.2em; }
+    h2 { font-size: 1.15em; color: #1A1A2E; margin-top: 2em; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3em; }
+    p { margin: 0.8em 0; }
+    ul { margin: 0.5em 0 0.8em 1.5em; }
+    li { margin: 0.3em 0; }
+    .effective { color: #666; font-size: 0.9em; margin-top: 0.2em; }
+    .contact { background: #f3e5f5; border-left: 4px solid #9C27B0; padding: 1em 1.2em; border-radius: 4px; margin-top: 2em; }
+    a { color: #9C27B0; }
   </style>
 </head>
 <body>
 
 <h1>Privacy Policy — Voxly AI Keyboard</h1>
-<p class="updated">Effective date: 17 March 2026</p>
+<p class="effective">Effective date: 17 March 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
 
-<p>This Privacy Policy applies to the <strong>Voxly AI Keyboard</strong> Android application (the "Application"), developed by <strong>Sarun Saji</strong> ("Service Provider"). By using the Application, you agree to the collection and use of information as described in this policy.</p>
+<p>This Privacy Policy describes how Voxly AI Keyboard ("Application", "we", "us") collects, uses, and protects your information when you use our Android keyboard application. By using the Application you agree to the practices described here.</p>
 
-<h2>1. What the Application Does</h2>
-<p>Voxly AI Keyboard is an Android input method (keyboard) that allows users to type using their voice. The Application records audio from your microphone, sends it to an AI service for transcription and translation, and inputs the resulting text into any app on your device. Users can also create a cloned voice profile for text-to-speech playback.</p>
+<h2>1. Information We Collect</h2>
 
-<h2>2. Information We Collect</h2>
+<p><strong>Account information.</strong> When you sign in with Google, we receive your name and email address via Firebase Authentication (Google LLC). We use this only to identify your account and manage your credit balance.</p>
 
-<p><strong>Audio recordings</strong><br>
-When you tap the microphone button, the Application records audio from your device microphone. This audio is transmitted to Google Gemini AI for transcription and translation. Audio files are processed in real time and are not permanently stored by the Service Provider.</p>
+<p><strong>Voice and audio data.</strong> The Application records audio from your microphone when you tap the mic button. This audio is transmitted to our backend server and then to Google Gemini AI solely to perform speech transcription and translation. Audio files are deleted immediately after processing and are never stored permanently.</p>
 
-<p><strong>Google account information</strong><br>
-The Application uses Google Sign-In (Firebase Authentication). When you sign in, we collect your Google account email address and a unique user identifier (UID). We do not access your Google contacts, calendar, or any other Google data.</p>
+<p><strong>Voice clone samples.</strong> If you choose to use the voice cloning feature, you may upload a voice recording. This recording is sent to ElevenLabs (ElevenLabs Inc.) to create a voice clone. Your voice data is processed under ElevenLabs' own privacy policy. You can delete your voice profile at any time from within the Application.</p>
 
-<p><strong>Voice profile data</strong><br>
-If you choose to create a voice clone, your recorded voice sample is sent to ElevenLabs for voice cloning. This data is stored on ElevenLabs servers and governed by ElevenLabs own privacy policy (elevenlabs.io/privacy).</p>
+<p><strong>Usage and credit data.</strong> We store your credit balance, usage history, and account settings in Firebase Firestore (Google LLC). This is necessary to provide the credit-based service.</p>
 
-<p><strong>Credit balance and usage data</strong><br>
-We store your credit balance and usage history in Google Firestore to manage your account and provide the service.</p>
+<p><strong>Device and technical data.</strong> We may collect your device's IP address, operating system version, and crash logs to maintain and improve the Application.</p>
 
-<p><strong>Device information</strong><br>
-We may collect basic device information such as your IP address, Android version, and device model for error monitoring and service improvement.</p>
+<h2>2. How We Use Your Information</h2>
+<ul>
+  <li>To transcribe and translate your speech into text</li>
+  <li>To generate voice audio using your cloned voice</li>
+  <li>To manage your account and credit balance</li>
+  <li>To process in-app purchases via Google Play Billing</li>
+  <li>To improve the Application's performance and fix bugs</li>
+  <li>To comply with legal obligations</li>
+</ul>
 
-<h2>3. Third Party Services</h2>
+<h2>3. Third-Party Services</h2>
 <p>The Application uses the following third-party services, each governed by their own privacy policies:</p>
 <ul>
-  <li><strong>Google Firebase</strong> — authentication and database (policies.google.com/privacy)</li>
-  <li><strong>Google Gemini AI</strong> — audio transcription and translation (ai.google.dev)</li>
-  <li><strong>ElevenLabs</strong> — voice cloning and text-to-speech (elevenlabs.io/privacy)</li>
+  <li><strong>Firebase Authentication & Firestore</strong> (Google LLC) — user login and data storage</li>
+  <li><strong>Google Gemini AI</strong> (Google LLC) — speech transcription and translation</li>
+  <li><strong>ElevenLabs</strong> (ElevenLabs Inc.) — voice cloning and text-to-speech generation</li>
+  <li><strong>Google Play Billing</strong> (Google LLC) — in-app credit purchases</li>
 </ul>
-<p>Audio sent to Google Gemini and ElevenLabs is subject to their respective data processing terms. We encourage you to review their privacy policies.</p>
+<p>We do not sell your personal data to any third party.</p>
 
-<h2>4. How We Use Your Information</h2>
+<h2>4. Microphone Permission</h2>
+<p>The Application requires microphone access solely to capture your voice for transcription. The microphone is only active when you explicitly tap the mic button. We do not record audio in the background.</p>
+
+<h2>5. In-App Purchases</h2>
+<p>The Application offers credit packages purchasable through Google Play. All payment processing is handled entirely by Google Play. We do not collect or store your payment card details.</p>
+
+<h2>6. Data Retention</h2>
+<p>Your account data (email, credit balance) is retained for as long as your account is active. Voice recordings used for transcription are deleted immediately after processing. Voice clone samples stored on ElevenLabs may be deleted by you at any time via the Settings screen. To request full account deletion, contact us at the email below.</p>
+
+<h2>7. Children's Privacy</h2>
+<p>The Application is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly. Users must be at least 16 years old to consent to data processing in most countries.</p>
+
+<h2>8. Data Security</h2>
+<p>We use HTTPS encryption for all data transmission between the Application and our servers. Your account data is stored in Google Firebase which provides industry-standard security. However, no method of transmission over the internet is 100% secure.</p>
+
+<h2>9. Your Rights</h2>
+<p>You have the right to access, correct, or delete your personal data at any time. You can:</p>
 <ul>
-  <li>To provide voice transcription and translation features</li>
-  <li>To manage your account and credit balance</li>
-  <li>To generate and play back cloned voice audio (if you create a voice profile)</li>
-  <li>To improve the Application and fix errors</li>
-  <li>To communicate important updates about the service</li>
+  <li>Delete your voice profiles from the Settings screen</li>
+  <li>Sign out of your account at any time</li>
+  <li>Request full account and data deletion by contacting us</li>
+  <li>Uninstall the Application to stop all data collection</li>
 </ul>
-
-<h2>5. Microphone Permission</h2>
-<p>The Application requires microphone access solely for voice input. The microphone is only active when you explicitly tap the microphone button in the keyboard. The Application does not record audio in the background.</p>
-
-<h2>6. Data Storage and Security</h2>
-<p>Your account data is stored securely on Google Firebase servers. Audio recordings are transmitted over encrypted HTTPS connections and are not permanently stored on our servers. We implement reasonable technical and organisational measures to protect your data.</p>
-
-<h2>7. Data Retention</h2>
-<p>We retain your account data (email, credit balance, usage history) for as long as your account is active. Voice profiles stored on ElevenLabs are retained until you delete them from within the Application. To request deletion of your account and all associated data, please contact us at Sarunsaji31@gmail.com</p>
-
-<h2>8. Children's Privacy</h2>
-<p>The Application is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will promptly delete it.</p>
-
-<h2>9. Opt-Out and Account Deletion</h2>
-<p>You can stop using the Application at any time by uninstalling it. To request deletion of your account and personal data, contact us at Sarunsaji31@gmail.com with the subject "Delete My Account".</p>
 
 <h2>10. Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the effective date at the top of this page. Continued use of the Application after changes constitutes acceptance of the updated policy.</p>
 
-<h2>11. Contact Us</h2>
-<p>If you have any questions about this Privacy Policy or how we handle your data, please contact:</p>
-<p>
-  <strong>Sarun Saji</strong><br>
-  Email: Sarunsaji31@gmail.com
-</p>
+<div class="contact">
+  <strong>Contact Us</strong><br>
+  For any privacy questions or data deletion requests, contact:<br>
+  Sarun Saji &nbsp;·&nbsp; <a href="mailto:Sarunsaji31@gmail.com">Sarunsaji31@gmail.com</a>
+</div>
 
 </body>
 </html>
