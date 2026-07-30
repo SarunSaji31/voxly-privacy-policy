@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,10 @@
     nav { background: #1A1A2E; padding: 1em 1.5em; margin: -2em -1.5em 2em -1.5em; }
     nav a { color: #BB86FC; text-decoration: none; margin-right: 1.5em; font-size: 0.9em; }
     nav a:hover { text-decoration: underline; }
+    table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.95em; }
+    th, td { border: 1px solid #e0e0e0; padding: 0.6em 0.8em; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    .table-wrap { overflow-x: auto; }
   </style>
 </head>
 <body>
@@ -36,108 +40,133 @@
 </nav>
 
 <h1>Privacy Policy — Voxly AI Keyboard</h1>
-<p class="effective">Effective date: 10 June 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
+<p class="effective">Effective date: 30 July 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
 
-<p>This Privacy Policy describes how Voxly AI Keyboard ("Application", "we", "us") collects, uses, and protects your information when you use our Android keyboard application. By using the Application you agree to the practices described here.</p>
+<p>This Privacy Policy describes how Voxly AI Keyboard ("Application", "we", "us") collects, uses, and protects your information. Voxly is an Android keyboard that turns speech into text: you speak, and the text is typed into whatever app you are using.</p>
 
 <h2>1. Keyboard and Typing Data</h2>
 <div class="highlight-box">
-  <strong>Your typing stays on your device.</strong> Voxly is an input method (keyboard) app, so we want to be very clear: the text you type with the keyboard is processed only on your device and is delivered directly to the app you are typing into. We do not log, store, or transmit your keystrokes.
+  <strong>Your typing stays on your device.</strong> Voxly is an input method (keyboard) app, so we want to be very clear: the text you type is processed only on your device and is delivered directly to the app you are typing into. We do not log, store, or transmit your keystrokes.
 </div>
 <ul>
-  <li>Word suggestions and autocorrect are generated entirely on your device using a dictionary bundled inside the Application. No typed text leaves your device for these features.</li>
-  <li>Suggestions and autocorrect are automatically disabled in password, email address, and web address fields.</li>
+  <li>Word suggestions come from a dictionary bundled inside the Application and are generated entirely on your device. No typed text leaves your device for this.</li>
+  <li>Suggestions are automatically switched off in password, email address, and web address fields.</li>
+  <li>Voxly does not change words you have typed. Suggestions are applied only when you tap one.</li>
   <li>We do not collect data about which apps you type into.</li>
 </ul>
-<p>The only content that leaves your device is content you explicitly send: voice recordings you make by tapping the mic button (for transcription) and voice samples you choose to upload (for voice cloning), as described below.</p>
+<p>The only content that leaves your device is a voice recording you make by deliberately pressing or holding the mic button.</p>
 
 <h2>2. Information We Collect</h2>
 
-<p><strong>Account information.</strong> When you sign in with Google, we receive your name and email address via Firebase Authentication (Google LLC). We use this only to identify your account and manage your credit balance.</p>
+<p><strong>Account information.</strong> When you sign in with Google, we receive your name and email address through Firebase Authentication (Google LLC). We use these to identify your account, to show you which account you are signed in to, and to manage your credit balance. Firebase Authentication is the record of who you are; the copy of your name and email in our database exists so that an account is readable without cross-referencing an internal id.</p>
 
-<p><strong>Voice and audio data (transcription).</strong> The Application records audio from your microphone only when you tap the mic button. This audio is transmitted over an encrypted connection to our backend server (hosted in the European Union) and then to Google Gemini AI solely to perform speech transcription and translation. Audio files are deleted from our server immediately after processing and are never stored permanently. If the recording is silent or empty, it is rejected on your device and is not transmitted at all.</p>
+<p><strong>Voice recordings.</strong> The Application records audio only while you press or hold the mic button, and the keyboard shows plainly when recording is in progress. The recording is sent over an encrypted connection to our server in the European Union, and from there to Google Gemini (Google LLC), which converts it to text and, if you have chosen an output language, translates it. The audio file exists on our server only for the moment it takes to do this and is then deleted. It is never stored, never used to train any model by us, and never associated with your account beyond the credit that the request costs.</p>
 
-<p><strong>Voice clone samples.</strong> If you choose to use the voice cloning feature, you may record and upload a voice sample. This recording is sent to ElevenLabs (ElevenLabs Inc.) to create a voice clone, processed under ElevenLabs' own privacy policy. To operate this feature, our server also stores a reference linking your profile to the ElevenLabs voice and a non-reversible content fingerprint (hash) of your sample used to avoid duplicate clones. Voice tuning preferences (such as speed and stability) are stored only on your device. You can delete your voice profiles at any time from the Application's Settings or Manage Voices screen; deletion removes the clone from ElevenLabs and the associated data from our server.</p>
+<p><strong>The transcribed text is not stored anywhere by us.</strong> It is returned to your device, typed into your field, and forgotten. Our request logs record that a transcription happened, the size of the audio, and which language mode was used, but never the audio itself or the text it produced.</p>
 
-<p><strong>Generated voice clips.</strong> Audio clips generated with your cloned voice are saved in the Application's private storage on your device. A clip is shared with another app (for example WhatsApp) only when you explicitly choose to share it via the Android share sheet, and only the app you select receives access to that clip.</p>
+<p><strong>Credit balance and credit history.</strong> Voxly runs on credits, so we store your balance in Firebase Firestore (Google LLC) together with a history of how it changed: the free credits granted when you signed up, credits added by a purchase, and a daily total of how many voice messages you used. The daily total is a count and a date. It does not contain what you said.</p>
 
-<p><strong>Account and credit data.</strong> We store your credit balance and account status in Firebase Firestore (Google LLC). This is necessary to provide the credit-based service.</p>
+<p><strong>Purchase records.</strong> If you buy a credit pack, Google Play processes the payment. We never see your card or payment details. We record that the purchase happened, which pack it was, the number of credits, the Google Play order id, the country the purchase was made in, and the time, so the credits can be granted, a refund can be traced, and our accounts can be filed.</p>
 
-<p><strong>Device and technical data.</strong> Through Firebase, we may collect your device's IP address, operating system version, basic app usage events, and crash logs to maintain and improve the Application.</p>
+<p><strong>Device and technical data.</strong> Through Firebase Analytics (Google LLC) we may receive your device's IP address, operating system version, basic app usage events, and crash reports, which we use to keep the Application working and to fix faults.</p>
 
-<h2>3. How We Use Your Information</h2>
+<p><strong>Settings that never leave your device.</strong> Your chosen output language, keyboard theme, key size, and similar preferences are stored only on your phone. They are not sent to us and not restored if you reinstall.</p>
+
+<h2>3. What We Do Not Collect</h2>
 <ul>
-  <li>To transcribe and translate your speech into text</li>
-  <li>To create voice clones and generate voice audio, when you use those features</li>
-  <li>To manage your account and credit balance</li>
-  <li>To improve the Application's performance and fix bugs</li>
-  <li>To comply with legal obligations</li>
+  <li>The text you type on the keyboard.</li>
+  <li>The text produced by a transcription.</li>
+  <li>Your voice recordings, beyond the moment needed to transcribe them.</li>
+  <li>Your location. We do not request or derive it.</li>
+  <li>Your contacts, photos, files, or messages.</li>
+  <li>Which applications you use Voxly in.</li>
 </ul>
-<p>We do not use your data for advertising, and we do not sell your personal data to any third party.</p>
+<p>We do not sell personal data, and we do not use your data for advertising.</p>
 
-<h2>4. Third-Party Services</h2>
-<p>The Application uses the following third-party services, each governed by their own privacy policies:</p>
+<h2>4. How We Use Your Information</h2>
 <ul>
-  <li><strong>Firebase Authentication &amp; Firestore</strong> (Google LLC) — user login and account data storage</li>
-  <li><strong>Firebase Analytics</strong> (Google LLC) — anonymous usage statistics and crash reporting</li>
-  <li><strong>Google Gemini AI</strong> (Google LLC) — speech transcription and translation</li>
-  <li><strong>ElevenLabs</strong> (ElevenLabs Inc.) — voice cloning and text-to-speech generation (only if you use the voice cloning feature)</li>
-  <li><strong>Google Play</strong> (Google LLC) — app distribution and in-app update checks</li>
+  <li>To turn your speech into text, and to translate it into the language you have selected</li>
+  <li>To identify your account and keep your credit balance correct</li>
+  <li>To grant credits you have paid for, and to handle refunds and payment disputes</li>
+  <li>To keep the Application working and fix faults</li>
+  <li>To meet legal obligations, including keeping accounting records</li>
 </ul>
 
-<h2>5. Microphone Permission</h2>
-<p>The Application requires microphone access solely to capture your voice for transcription and, if you choose, voice clone samples. The microphone is only active when you explicitly tap the mic or record button, and the keyboard shows when recording is in progress. We do not record audio in the background.</p>
-
-<h2>6. Credits</h2>
-<p>The Application uses a credit system to meter transcription and voice generation. New accounts receive free credits, and credits are only deducted for successful requests. The Application does not currently offer in-app purchases. If paid credit packages are introduced in the future, payments will be handled by Google Play and this policy will be updated before launch.</p>
-
-<h2>7. Data Retention</h2>
-<ul>
-  <li><strong>Typed text:</strong> never collected, so there is nothing to retain.</li>
-  <li><strong>Transcription audio:</strong> deleted from our server immediately after processing.</li>
-  <li><strong>Voice clones and sample fingerprints:</strong> retained until you delete the voice profile in the Application, or until your account is deleted.</li>
-  <li><strong>Generated voice clips:</strong> stored only on your device; removed when you clear the Application's data or uninstall it.</li>
-  <li><strong>Account data (email, credit balance):</strong> retained for as long as your account is active.</li>
-</ul>
-<p>To request full account deletion, visit our <a href="delete-account.html">Account Deletion page</a> or contact us at the email below.</p>
-
-<h2>8. Account Deletion</h2>
-<p>You have the right to delete your account and all associated data at any time.</p>
-<div class="delete-box">
-  To request account deletion, visit our <a href="delete-account.html"><strong>Account Deletion page</strong></a> or email us directly at <a href="mailto:Sarunsaji31@gmail.com">Sarunsaji31@gmail.com</a> with subject <strong>"Account Deletion Request"</strong>. We will process your request within 7 business days.
+<h2>5. Third-Party Services</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>Service</th><th>Provider</th><th>What it receives</th></tr>
+  <tr><td>Firebase Authentication</td><td>Google LLC</td><td>Your Google account name and email, to sign you in</td></tr>
+  <tr><td>Firebase Firestore</td><td>Google LLC</td><td>Your account record, credit balance and credit history</td></tr>
+  <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Anonymous usage events and crash reports</td></tr>
+  <tr><td>Google Gemini</td><td>Google LLC</td><td>Your voice recording, to transcribe and translate it</td></tr>
+  <tr><td>Google Play Billing</td><td>Google LLC</td><td>Your payment, which Google processes. We receive only the order details.</td></tr>
+  <tr><td>Google Play</td><td>Google LLC</td><td>App distribution and update checks</td></tr>
+  <tr><td>Hetzner Online GmbH</td><td>Germany</td><td>Hosts our server, where audio passes through in transit</td></tr>
+</table>
 </div>
-<p>The following data will be permanently deleted:</p>
+<p>Each of these is governed by its provider's own privacy policy.</p>
+
+<h2>6. Microphone Permission</h2>
+<p>The Application requires microphone access for one purpose: to capture your voice so it can be turned into text. The microphone is active only while you press or hold the mic button, and the keyboard shows a clear recording indicator while it is. We never record in the background. If a recording is silent or too short, your device discards it and nothing is sent at all.</p>
+
+<h2>7. In-App Purchases</h2>
+<p>Voxly meters transcription with credits. New accounts receive a number of free credits, and a credit is only deducted for a successful transcription. Silence and failed requests cost nothing.</p>
+<p>You can buy additional credit packs through Google Play. Payments are handled entirely by Google Play; we never receive or store your payment details. Purchases are verified with Google on our server before credits are granted. Credit packs are one-time purchases, not subscriptions, and are available in a limited set of countries.</p>
+
+<h2>8. Data Retention</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>Data</th><th>How long we keep it</th></tr>
+  <tr><td>Text you type</td><td>Never collected, so there is nothing to keep</td></tr>
+  <tr><td>Voice recordings</td><td>Deleted from our server as soon as the text is ready</td></tr>
+  <tr><td>Transcribed text</td><td>Never stored</td></tr>
+  <tr><td>Account details and credit balance</td><td>Until you delete your account</td></tr>
+  <tr><td>Credit history</td><td>Until you delete your account</td></tr>
+  <tr><td>Purchase records</td><td>Up to 5 years, as required by Danish bookkeeping law. Your name and email are removed from these records when you delete your account.</td></tr>
+  <tr><td>On-device settings</td><td>Until you clear the app's data or uninstall it</td></tr>
+</table>
+</div>
+
+<h2>9. Deleting Your Account</h2>
+<div class="delete-box">
+  <p><strong>You can delete your account yourself, from inside the app.</strong> Open Voxly, go to Settings, then <strong>Privacy &amp; data</strong>, then <strong>Delete account</strong>. Deletion happens immediately. There is no waiting period and you do not need to contact us.</p>
+  <p>If you no longer have the app installed, you can request deletion from our <a href="delete-account.html">Account Deletion page</a>.</p>
+</div>
+<p><strong>What is deleted:</strong> your account and sign-in credentials, your credit balance, your credit history, and your name and email address wherever we hold them. Unused credits are forfeited and cannot be restored.</p>
+<p><strong>What is kept, and why:</strong> the record that a purchase took place, including the amount, the Google Play order id, the country and the date. Accounting records have to be retained under Danish bookkeeping law, so these are not deleted. Your name and email are stripped from them at the moment you delete your account, leaving a financial record that is no longer tied to your identity.</p>
+
+<h2>10. Children's Privacy</h2>
+<p>The Application is not directed at children under 13, and we do not knowingly collect personal information from anyone under 13. Where the law sets a higher minimum age for consenting to data processing, which is up to 16 in parts of the European Union, you must meet that age or have your parent's consent to use the Application. If you believe a child has provided us with personal information, contact us and we will delete it promptly.</p>
+
+<h2>11. Data Security</h2>
+<p>All traffic between the Application, our server, and third-party services uses HTTPS encryption. Every request to our server carries your Firebase session token and is rejected without it, and our database rejects writes from the app entirely, so your balance cannot be altered from a device. No method of transmission over the internet is completely secure, but we do not retain the data most worth stealing: your audio and your text are gone before the request finishes.</p>
+
+<h2>12. Where Your Data Is Processed</h2>
+<p>Our server is located in the European Union. Google's services, including Firebase and Gemini, may process data outside the EU under Google's own safeguards and contractual terms. Your voice recording travels from your device to our EU server and on to Google for transcription, and is deleted immediately afterwards.</p>
+
+<h2>13. Your Rights</h2>
+<p>Depending on where you live, including under the GDPR, you have the right to access, correct, delete, or receive a copy of your personal data, and to object to or restrict its processing. In practice you can:</p>
 <ul>
-  <li>Your account and login credentials</li>
-  <li>Your credit balance</li>
-  <li>Your voice clones on ElevenLabs, and the voice references and sample fingerprints on our server</li>
-  <li>All personal data associated with your account</li>
-</ul>
-
-<h2>9. Children's Privacy</h2>
-<p>The Application is not directed at children under 13, and we do not knowingly collect personal information from anyone under 13. In regions where the law sets a higher minimum age for consenting to data processing (up to 16 in parts of the European Union), you must meet that age or have parental consent to use the Application. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
-
-<h2>10. Data Security</h2>
-<p>All data transmission between the Application, our servers, and third-party services uses HTTPS encryption. Every request to our backend is authenticated with your Firebase session token. Your account data is stored in Google Firebase, which provides industry-standard security. However, no method of transmission over the internet is 100% secure.</p>
-
-<h2>11. Your Rights</h2>
-<p>Depending on your location (including under the GDPR), you have the right to access, correct, delete, or receive a copy of your personal data, and to object to or restrict its processing. You can:</p>
-<ul>
-  <li>Delete individual voice profiles from the Settings or Manage Voices screen</li>
-  <li>Sign out of your account at any time</li>
-  <li>Request full account and data deletion via the <a href="delete-account.html">Account Deletion page</a></li>
+  <li>Delete your account and data yourself, in Settings under Privacy &amp; data</li>
+  <li>Sign out at any time</li>
   <li>Uninstall the Application to stop all data collection</li>
-  <li>Email us to exercise any other data right</li>
+  <li>Revoke microphone access in your Android settings, which disables voice input but leaves the keyboard working for typing</li>
+  <li>Email us to exercise any other right, or to complain</li>
 </ul>
+<p>If you are in the EU and believe we have handled your data improperly, you may also complain to your national data protection authority. In Denmark this is Datatilsynet.</p>
 
-<h2>12. Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time, for example when new features are added. We will notify you of significant changes by updating the effective date at the top of this page. Continued use of the Application after changes constitutes acceptance of the updated policy.</p>
+<h2>14. Reporting a Problem</h2>
+<p>Speech recognition can get things wrong, and a translation can come out badly. If Voxly produces output that is wrong, offensive, or harmful, report it from Settings, under Privacy &amp; data, then <strong>Report a problem</strong>, or write to the address below. Include what was produced so we can look into it.</p>
+
+<h2>15. Changes to This Policy</h2>
+<p>We may update this Privacy Policy, for example when a feature is added or removed. Significant changes will be reflected in the effective date at the top of this page. Continued use of the Application after a change constitutes acceptance of the updated policy.</p>
 
 <div class="contact">
-  <strong>Contact Us</strong><br>
-  For any privacy questions or data deletion requests, contact:<br>
-  Sarun Saji &nbsp;·&nbsp; <a href="mailto:Sarunsaji31@gmail.com">Sarunsaji31@gmail.com</a><br><br>
-  <a href="delete-account.html">→ Request Account Deletion</a>
+  <strong>Contact</strong><br>
+  For privacy questions, data requests, or to report a problem:<br>
+  Sarun Saji &nbsp;·&nbsp; <a href="mailto:Sarunsaji31@gmail.com">Sarunsaji31@gmail.com</a>
+  <p style="margin-bottom:0"><a href="delete-account.html">→ Delete your account</a></p>
 </div>
 
 </body>
