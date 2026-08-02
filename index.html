@@ -40,7 +40,7 @@
 </nav>
 
 <h1>Privacy Policy — Voxly AI Keyboard</h1>
-<p class="effective">Effective date: 30 July 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
+<p class="effective">Effective date: 2 August 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
 
 <p>This Privacy Policy describes how Voxly AI Keyboard ("Application", "we", "us") collects, uses, and protects your information. Voxly is an Android keyboard that turns speech into text: you speak, and the text is typed into whatever app you are using.</p>
 
@@ -54,7 +54,7 @@
   <li>Voxly does not change words you have typed. Suggestions are applied only when you tap one.</li>
   <li>We do not collect data about which apps you type into.</li>
 </ul>
-<p>The only content that leaves your device is a voice recording you make by deliberately pressing or holding the mic button.</p>
+<p>Two things, and only two, leave your device as content: a voice recording you make by deliberately pressing or holding the mic button, and a word you type into the GIF search box. Both are deliberate acts. Nothing you type into the app you are using is included in either.</p>
 
 <h2>2. Information We Collect</h2>
 
@@ -63,6 +63,9 @@
 <p><strong>Voice recordings.</strong> The Application records audio only while you press or hold the mic button, and the keyboard shows plainly when recording is in progress. The recording is sent over an encrypted connection to our server in the European Union, and from there to Google Gemini (Google LLC), which converts it to text and, if you have chosen an output language, translates it. The audio file exists on our server only for the moment it takes to do this and is then deleted. It is never stored, never used to train any model by us, and never associated with your account beyond the credit that the request costs.</p>
 
 <p><strong>The transcribed text is not stored anywhere by us.</strong> It is returned to your device, typed into your field, and forgotten. Our request logs record that a transcription happened, the size of the audio, and which language mode was used, but never the audio itself or the text it produced.</p>
+
+<p><strong>GIF searches.</strong> The GIF panel is optional and does nothing until you open it. When you search in it, the word you type is sent to our server and forwarded to GIPHY (GIPHY, Inc., a Shutterstock company, United States), which returns matching results. We do not log search terms: our request log records the address of the request, which does not include what you searched for. The term is held in memory on our server for a few minutes so that the same search by anyone does not have to be repeated, and it is not written to any database, not attached to your account, and not retained after that.</p>
+<p>The pictures themselves are loaded directly from GIPHY's servers to your device rather than through ours, so GIPHY receives your device's IP address and can see which results you loaded, in the same way as any website you visit. Results are restricted to GIPHY's most conservative content rating, which is enforced on our server and cannot be changed from the app.</p>
 
 <p><strong>Credit balance and credit history.</strong> Voxly runs on credits, so we store your balance in Firebase Firestore (Google LLC) together with a history of how it changed: the free credits granted when you signed up, credits added by a purchase, and a daily total of how many voice messages you used. The daily total is a count and a date. It does not contain what you said.</p>
 
@@ -74,7 +77,7 @@
 
 <h2>3. What We Do Not Collect</h2>
 <ul>
-  <li>The text you type on the keyboard.</li>
+  <li>The text you type on the keyboard. The one exception is the GIF search box inside our own panel, which is described in section 2; text typed into other apps never reaches us.</li>
   <li>The text produced by a transcription.</li>
   <li>Your voice recordings, beyond the moment needed to transcribe them.</li>
   <li>Your location. We do not request or derive it.</li>
@@ -102,6 +105,7 @@
   <tr><td>Google Gemini</td><td>Google LLC</td><td>Your voice recording, to transcribe and translate it</td></tr>
   <tr><td>Google Play Billing</td><td>Google LLC</td><td>Your payment, which Google processes. We receive only the order details.</td></tr>
   <tr><td>Google Play</td><td>Google LLC</td><td>App distribution and update checks</td></tr>
+  <tr><td>GIPHY</td><td>GIPHY, Inc. (Shutterstock), United States</td><td>Your GIF search term, and your IP address when the pictures load</td></tr>
   <tr><td>Hetzner Online GmbH</td><td>Germany</td><td>Hosts our server, where audio passes through in transit</td></tr>
 </table>
 </div>
@@ -121,6 +125,8 @@
   <tr><td>Text you type</td><td>Never collected, so there is nothing to keep</td></tr>
   <tr><td>Voice recordings</td><td>Deleted from our server as soon as the text is ready</td></tr>
   <tr><td>Transcribed text</td><td>Never stored</td></tr>
+  <tr><td>GIF search terms</td><td>Never logged or stored. Held in our server's memory for a few minutes as a shared cache, then discarded</td></tr>
+  <tr><td>GIFs you send</td><td>Cached on your device for up to 6 hours so a re-send does not download again, then deleted automatically</td></tr>
   <tr><td>Account details and credit balance</td><td>Until you delete your account</td></tr>
   <tr><td>Credit history</td><td>Until you delete your account</td></tr>
   <tr><td>Purchase records</td><td>5 years from the end of the financial year the purchase falls in, as required by Danish bookkeeping law. Your name and email are removed from these records as soon as you delete your account.</td></tr>
@@ -137,13 +143,14 @@
 <p><strong>What is kept, and why:</strong> the record that a purchase took place, including the amount, the Google Play order id, the country and the date. Accounting records have to be retained under Danish bookkeeping law, so these are not deleted. Your name and email are stripped from them at the moment you delete your account, leaving a financial record that is no longer tied to your identity.</p>
 
 <h2>10. Children's Privacy</h2>
-<p>The Application is not directed at children under 13, and we do not knowingly collect personal information from anyone under 13. Where the law sets a higher minimum age for consenting to data processing, which is up to 16 in parts of the European Union, you must meet that age or have your parent's consent to use the Application. If you believe a child has provided us with personal information, contact us and we will delete it promptly.</p>
+<p>The Application is not directed at children under 13, and we do not knowingly collect personal information from anyone under 13. Where the law sets a higher minimum age for consenting to data processing, which is up to 16 in parts of the European Union, you must meet that age or have your parent's consent to use the Application. If you believe a child has provided us with personal information, contact us and we will delete it promptly. GIF results are restricted to the most conservative content rating GIPHY offers, and that restriction is applied on our server so it cannot be turned off from the app.</p>
 
 <h2>11. Data Security</h2>
 <p>All traffic between the Application, our server, and third-party services uses HTTPS encryption. Every request to our server carries your Firebase session token and is rejected without it, and our database rejects writes from the app entirely, so your balance cannot be altered from a device. No method of transmission over the internet is completely secure, but we do not retain the data most worth stealing: your audio and your text are gone before the request finishes.</p>
 
 <h2>12. Where Your Data Is Processed</h2>
 <p>Our server is located in the European Union. Google's services, including Firebase and Gemini, may process data outside the EU under Google's own safeguards and contractual terms. Your voice recording travels from your device to our EU server and on to Google for transcription, and is deleted immediately afterwards.</p>
+<p>GIF search is provided by GIPHY, Inc. in the United States. A search term you type in that panel, and your IP address when the pictures load, are therefore processed outside the European Union. This applies only if you open that panel; it does not affect transcription, which stays within our EU server and Google's infrastructure.</p>
 
 <h2>13. Your Rights</h2>
 <p>Depending on where you live, including under the GDPR, you have the right to access, correct, delete, or receive a copy of your personal data, and to object to or restrict its processing. In practice you can:</p>
