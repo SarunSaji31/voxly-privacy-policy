@@ -54,7 +54,7 @@
     <li>Scroll to <strong>Privacy &amp; data</strong>.</li>
     <li>Tap <strong>Delete account</strong> and confirm.</li>
   </ol>
-  <p style="margin-bottom:0">Deletion happens immediately. There is no waiting period, and you are signed out as soon as it finishes.</p>
+  <p style="margin-bottom:0">Deletion starts when you confirm; there is no scheduled waiting period. The app signs you out when the request finishes. If deletion does not complete as expected, email support@voxlykeys.com for help completing deletion.</p>
 </div>
 
 <h2>If you no longer have the app</h2>
@@ -62,33 +62,35 @@
 
 <h2>What gets deleted</h2>
 <ul>
-  <li>Your account and Google sign-in credentials. You will no longer be able to sign in.</li>
+  <li>Your stored account details. We also request deletion of your Voxly sign-in account; this does not delete your Google account. Contact us if deletion does not complete as expected.</li>
   <li>Your credit balance. Unused credits are forfeited and cannot be restored or refunded.</li>
   <li>Your credit history, meaning every record of credits granted, bought, and used.</li>
   <li>Your transcription records, meaning the date, language and size of each voice message you sent and each text you translated. These never contained the recording, the text you sent, or the text produced.</li>
-  <li>Your name and email address, apart from the two records described below.</li>
+  <li>Your name and email address, apart from the retained records described below.</li>
 </ul>
 
 <h2>What is kept, and why</h2>
 <div class="delete-box">
   <p>The record that a purchase took place is kept: the amount, the number of credits, the Google Play order id, the country, and the date. Danish bookkeeping law requires accounting records to be retained for 5 years after the end of the financial year they fall in, so we cannot delete these.</p>
-  <p>Your name and email are removed from those records at the moment you delete your account, so what remains is a financial record with no personal details attached to it.</p>
+  <p>Your name and email are removed from those records at the moment you delete your account, but your account identifier (UID) and purchase identifiers remain so purchases and refunds can be traced. Removing your name and email does not remove these identifiers.</p>
   <p style="margin-bottom:0">A record of the deletion itself is also kept: your email address, the reason you gave if you chose to give one, how long the account existed, and the credits left on it. We keep it to understand why people leave and to detect repeated abuse of the free credit grant. It is removed automatically 12 months after you delete your account. If you would rather it were removed sooner, email us and we will delete it.</p>
 </div>
+
+<p>A separate free-credit eligibility record remains after account deletion. It is keyed by a one-way hash of your Google provider identity and holds the grant date, without your name or email. It has no scheduled expiry and prevents deleting and recreating an account to claim introductory credits again.</p>
 
 <h2>Data that was never stored in the first place</h2>
 <div class="table-wrap">
 <table>
   <tr><th>Data</th><th>Status</th></tr>
-  <tr><td>Text you typed on the keyboard</td><td>Never left your device, so there is nothing to delete. The one exception is a word typed into the GIF search box, below</td></tr>
+  <tr><td>Text you typed on the keyboard</td><td>Ordinary typing stays on your device. Text you explicitly submit using Translate (where available) and terms you enter in GIF search are sent online to provide those features, but are not stored in our database</td></tr>
   <tr><td>Your voice recordings</td><td>Deleted from our server as soon as the text was ready, every time</td></tr>
-  <tr><td>Text produced by transcription</td><td>Never stored</td></tr>
+  <tr><td>Text produced by transcription or translation</td><td>Never stored</td></tr>
   <tr><td>GIF search terms</td><td>Never logged, never written to our database and never attached to your account, so there is nothing to delete</td></tr>
 </table>
 </div>
 
 <h2>Settings on your phone</h2>
-<p>Your output language, keyboard theme, and other preferences are stored only on your device, never on our servers. Deleting your account in the app clears them too. If you delete by email instead, clear the app's data or uninstall it to remove them.</p>
+<p>Your output language, keyboard theme, and other preferences are saved as settings only on your device. The language used for a voice message or translation is also kept in the transcription records described above, which are deleted with your account. Deleting your account in the app clears them too. If you delete by email instead, clear the app's data or uninstall it to remove them.</p>
 
 <p>For anything else, see our <a href="index.html">Privacy Policy</a>.</p>
 

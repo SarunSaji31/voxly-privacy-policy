@@ -40,13 +40,13 @@
 </nav>
 
 <h1>Privacy Policy — Voxly AI Keyboard</h1>
-<p class="effective">Effective date: 23 September 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
+<p class="effective">Effective date: 26 September 2026 &nbsp;·&nbsp; Developer: Sarun Saji</p>
 
-<p>This Privacy Policy describes how Voxly AI Keyboard ("Application", "we", "us") collects, uses, and protects your information. Voxly is an Android keyboard that turns speech into text: you speak, and the text is typed into whatever app you are using. It can also translate text you have typed, when you ask it to.</p>
+<p>This Privacy Policy describes how Voxly AI Keyboard ("Application", "we", "us") collects, uses, and protects your information. Voxly is an Android keyboard that turns speech into text: you speak, and the text is typed into whatever app you are using. Where available in your app version, it can also translate text you have typed, when you ask it to.</p>
 
 <h2>1. Keyboard and Typing Data</h2>
 <div class="highlight-box">
-  <strong>Your typing stays on your device unless you choose to translate it.</strong> Voxly is an input method (keyboard) app, so we want to be very clear: the text you type is processed on your device and is delivered directly to the app you are typing into. We do not log or store your keystrokes, and we never transmit them, with one exception you control: when you tap the Translate button, described in section 2.
+  <strong>Your typing stays on your device unless you choose to translate it.</strong> Voxly is an input method (keyboard) app, so we want to be very clear: the text you type is processed on your device and is delivered directly to the app you are typing into. We do not log or store your keystrokes, and we never transmit them, except when you deliberately submit text using the Translate button (where available) or enter a term in GIF search, both described in section 2.
 </div>
 <ul>
   <li>Word suggestions come from a dictionary bundled inside the Application and are generated entirely on your device. No typed text leaves your device for this.</li>
@@ -64,12 +64,12 @@
 
 <p><strong>The transcribed text is not stored anywhere by us.</strong> It is returned to your device, typed into your field, and forgotten. Our request logs record that a transcription happened, the size of the audio, and which language mode was used, but never the audio itself or the text it produced.</p>
 
-<p><strong>Text you choose to translate.</strong> The keyboard shows a Translate button while you type. Nothing is sent until you tap it. When you do, the text you have selected, or if nothing is selected the text before the cursor in the field you are typing in, is sent over an encrypted connection to our server in the European Union and from there to Google Gemini (Google LLC), which translates it. The translation is returned to your device and replaces your text; an Undo button puts the original back. Neither the text you sent nor the translation is stored by us, used to train any model by us, or associated with your account beyond the credit the request costs. Our request logs record that a translation happened, how long the text was, and which language mode was used, never the text itself. The Translate button is not shown in password, email address, or web address fields.</p>
+<p><strong>Text you choose to translate.</strong> In app versions that offer typed-text translation, the keyboard shows a Translate button while you type. Nothing is sent until you tap it. When you do, the text you have selected, or if nothing is selected the text before the cursor in the field you are typing in, is sent over an encrypted connection to our server in the European Union and from there to Google Gemini (Google LLC), which translates it. The translation is returned to your device and replaces your text; an Undo button puts the original back. Neither the text you sent nor the translation is stored by us, used to train any model by us, or associated with your account beyond the credit the request costs. Our request logs record that a translation happened, how long the text was, and which language mode was used, never the text itself. The Translate button is not shown in password, email address, or web address fields.</p>
 
 <p><strong>GIF searches.</strong> The GIF panel is optional and does nothing until you open it. When you search in it, the word you type is sent to our server and forwarded to GIPHY (GIPHY, Inc., a Shutterstock company, United States), which returns matching results. We do not log search terms: our request log records the address of the request, which does not include what you searched for. The term is held in memory on our server for a few minutes so that the same search by anyone does not have to be repeated, and it is not written to any database, not attached to your account, and not retained after that.</p>
 <p>The pictures themselves are loaded directly from GIPHY's servers to your device rather than through ours, so GIPHY receives your device's IP address and can see which results you loaded, in the same way as any website you visit. Results are restricted to GIPHY's most conservative content rating, which is enforced on our server and cannot be changed from the app.</p>
 
-<p><strong>Credit balance and credit history.</strong> Voxly runs on credits, so we store your balance in Firebase Firestore (Google LLC) together with a history of how it changed: the free credits granted when you signed up, credits added by a purchase, and a daily total of how many voice messages and translations you used. The daily total is a count and a date. It does not contain what you said or wrote.</p>
+<p><strong>Credit balance and credit history.</strong> Voxly runs on credits, so we store your balance in Firebase Firestore (Google LLC) together with a history of how it changed: the introductory credits granted when you first use voice or typed-text translation, where available, credits added by a purchase, and a daily total of how many voice messages and translations you used. The daily total is a count and a date. It does not contain what you said or wrote.</p>
 
 <p><strong>Transcription records.</strong> For each transcription or translation we also record the date, whether it came from your voice or from text you typed, whether the output was English or the language you chose, which language that was, the size of the recording or the length of the text you sent, and the length of the text produced. We use this to see which features are actually used and how well the service is working. It never contains the recording, the text you sent, or the text produced, and it is deleted when you delete your account.</p>
 
@@ -77,7 +77,7 @@
 
 <p><strong>Device and technical data.</strong> Through Firebase Analytics (Google LLC) we may receive your device's IP address, operating system version, basic app usage events, and crash reports, which we use to keep the Application working and to fix faults.</p>
 
-<p><strong>Settings stored only on your device.</strong> Your chosen output language, keyboard theme, key size, and similar preferences are stored only on your phone and are not restored if you reinstall. The only one we ever see is the output language, which travels with each voice message or translation so the text comes back in it; we do not keep it.</p>
+<p><strong>Settings stored only on your device.</strong> Your keyboard theme, key size, and similar preferences are stored only on your phone and are not restored if you reinstall. Your chosen output language is also saved as a local preference, but it travels with each voice message or translation so the text comes back in that language. We retain the language used for each request in the transcription records described above until you delete your account; we do not store a separate server copy of your keyboard settings.</p>
 
 <h2>3. What We Do Not Collect</h2>
 <ul>
@@ -137,19 +137,22 @@
   <tr><td>Transcription records</td><td>Until you delete your account</td></tr>
   <tr><td>Deletion records</td><td>12 months from the day you delete your account, then removed automatically</td></tr>
   <tr><td>Purchase records</td><td>5 years from the end of the financial year the purchase falls in, as required by Danish bookkeeping law. Your name and email are removed from these records as soon as you delete your account.</td></tr>
+  <tr><td>Free-credit eligibility record</td><td>Retained after account deletion, with no scheduled expiry, to prevent repeated introductory grants. Contains a hashed provider identity and grant date, not your name or email</td></tr>
   <tr><td>On-device settings</td><td>Until you clear the app's data or uninstall it</td></tr>
 </table>
 </div>
 
 <h2>9. Deleting Your Account</h2>
 <div class="delete-box">
-  <p><strong>You can delete your account yourself, from inside the app.</strong> Open Voxly, go to Settings, then <strong>Privacy &amp; data</strong>, then <strong>Delete account</strong>. Deletion happens immediately. There is no waiting period and you do not need to contact us.</p>
+  <p><strong>You can delete your account yourself, from inside the app.</strong> Open Voxly, go to Settings, then <strong>Privacy &amp; data</strong>, then <strong>Delete account</strong>. Deletion starts when you confirm; there is no scheduled waiting period. The process removes the account data listed below and requests removal of your sign-in account. If deletion does not complete as expected, contact support@voxlykeys.com for help completing deletion.</p>
   <p>If you no longer have the app installed, you can request deletion from our <a href="delete-account.html">Account Deletion page</a>.</p>
 </div>
-<p><strong>What is deleted:</strong> your account and sign-in credentials, your credit balance, your credit history, and your transcription records. Unused credits are forfeited and cannot be restored.</p>
-<p><strong>What is kept, and why.</strong> Two things, and both are limited.</p>
-<p>The record that a purchase took place, including the amount, the Google Play order id, the country and the date. Accounting records have to be retained under Danish bookkeeping law, so these are not deleted. Your name and email are stripped from them at the moment you delete your account, leaving a financial record that is no longer tied to your identity.</p>
+<p><strong>What is deleted:</strong> your stored account details, credit balance, credit history, and transcription records. We also request deletion of your sign-in account. Unused credits are forfeited and cannot be restored.</p>
+<p><strong>What is kept, and why.</strong> The following records remain after account deletion.</p>
+<p>The record that a purchase took place, including the amount, the Google Play order id, the country and the date. Accounting records have to be retained under Danish bookkeeping law, so these are not deleted. Your name and email are stripped from them at the moment you delete your account, but the record retains your account identifier (UID) and purchase identifiers so purchases and refunds can be traced. Removing your name and email does not remove these identifiers.</p>
 <p>A record of the deletion itself. This holds your email address, the reason you gave if you chose to give one, how long the account existed, and the credits left on it. We keep it to understand why people leave and to detect repeated abuse of the free credit grant. It is removed automatically 12 months after you delete your account. If you would rather it were removed sooner, email us at the address below and we will delete it.</p>
+
+<p>A free-credit eligibility record is also retained to prevent repeated introductory grants. It is keyed by a one-way hash of your Google provider identity and stores the date of the grant, without your name or email. It is not removed when you delete your account and has no scheduled expiry.</p>
 
 <h2>10. Children's Privacy</h2>
 <p>The Application is not directed at children under 13, and we do not knowingly collect personal information from anyone under 13. Where the law sets a higher minimum age for consenting to data processing, which is up to 16 in parts of the European Union, you must meet that age or have your parent's consent to use the Application. If you believe a child has provided us with personal information, contact us and we will delete it promptly. GIF results are restricted to the most conservative content rating GIPHY offers, and that restriction is applied on our server so it cannot be turned off from the app.</p>
