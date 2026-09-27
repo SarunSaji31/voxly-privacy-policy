@@ -1,0 +1,121 @@
+name: activity
+
+# A Telegram message for everything that happens in the repo: pushes (branch,
+# tag, force, delete) and pull requests. There are no other workflows here;
+# GitHub Pages builds on its own. Same file as Voxly_android_ai_keyboard.
+#
+# Messages are Telegram HTML; everything a person typed is escaped first.
+on:
+  push:
+    branches: ["**"]
+    tags: ["**"]
+  pull_request:
+    types: [opened, reopened, closed, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  tell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # The script comes from main, never from the branch being reported on, so
+      # a branch cannot change what runs next to the bot token.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+
+      - name: Tell Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          EVENT: ${{ github.event_name }}
+          ACTOR: ${{ github.actor }}
+          REPO: ${{ github.event.repository.name }}
+          # push
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+          FORCED: ${{ github.event.forced }}
+          DELETED: ${{ github.event.deleted }}
+          COMMITS: ${{ join(github.event.commits.*.id, ' ') }}
+          HEAD_MSG: ${{ github.event.head_commit.message }}
+          COMPARE: ${{ github.event.compare }}
+          # pull_request
+          PR_ACTION: ${{ github.event.action }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_MERGED: ${{ github.event.pull_request.merged }}
+          PR_BASE: ${{ github.event.pull_request.base.ref }}
+          PR_HEAD: ${{ github.event.pull_request.head.ref }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          # workflow_run
+          WF_NAME: ${{ github.event.workflow_run.name }}
+          WF_RESULT: ${{ github.event.workflow_run.conclusion }}
+          WF_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          WF_SHA: ${{ github.event.workflow_run.head_sha }}
+          WF_TRIGGER: ${{ github.event.workflow_run.event }}
+          WF_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          set -o pipefail
+          # Anything a person typed goes through tg-escape.sh, so it is shown
+          # as text: never markup, never a command.
+          esc() { .github/scripts/tg-escape.sh "$1"; }
+          short() { esc "$(printf '%s' "$1" | head -n1 | cut -c1-120)"; }
+          link() { printf '<a href="%s">%s ↗</a>' "$1" "$2"; }
+          repo="📦 $(esc "$REPO")"
+          case "$EVENT" in
+            push)
+              ref="<code>$(esc "$REF_NAME")</code>"
+              if [ "$DELETED" = true ]; then
+                kind=Branch; [ "$REF_TYPE" = tag ] && kind=Tag
+                msg="<b>🗑 ${kind} deleted</b>
+          ${ref} · by $(esc "$ACTOR")
+          ${repo}"
+              elif [ "$REF_TYPE" = tag ]; then
+                msg="<b>🏷 Tag pushed</b>
+          ${ref} · by $(esc "$ACTOR")
+          ${repo}"
+              else
+                n=$(wc -w <<< "$COMMITS" | tr -d ' ')
+                word=commits; [ "$n" = 1 ] && word=commit
+                title="📤 Push"; [ "$FORCED" = true ] && title="⚠️ Force push"
+                msg="<b>${title} to $(esc "$REF_NAME")</b>
+          <i>$(short "$HEAD_MSG")</i>
+          ${n} ${word} · by $(esc "$ACTOR")
+          ${repo}
+          $(link "$COMPARE" "View changes")"
+              fi ;;
+            pull_request)
+              case "$PR_ACTION" in
+                closed)
+                  if [ "$PR_MERGED" = true ]; then title="✅ Pull request #${PR_NUM} merged"
+                  else title="✖️ Pull request #${PR_NUM} closed without merging"; fi ;;
+                opened) title="🔀 Pull request #${PR_NUM} opened" ;;
+                reopened) title="🔁 Pull request #${PR_NUM} reopened" ;;
+                *) title="🔀 Pull request #${PR_NUM} ready for review" ;;
+              esac
+              msg="<b>${title}</b>
+          <i>$(short "$PR_TITLE")</i>
+          <code>$(esc "$PR_HEAD")</code> → <code>$(esc "$PR_BASE")</code>
+          ${repo}
+          $(link "$PR_URL" "Open pull request")" ;;
+            workflow_run)
+              case "$WF_NAME" in ci) name="CI" ;; e2e) name="E2E tests" ;; *) name="$(esc "$WF_NAME")" ;; esac
+              case "$WF_RESULT" in
+                success) head="✅ ${name} passed" ;;
+                failure) head="❌ ${name} failed" ;;
+                cancelled) head="⏹ ${name} cancelled" ;;
+                *) head="⚪ ${name}: $(esc "$WF_RESULT")" ;;
+              esac
+              trig="push"; [ "$WF_TRIGGER" = pull_request ] && trig="pull request"
+              msg="<b>${head}</b>
+          <code>$(esc "$WF_BRANCH")</code> · <code>${WF_SHA:0:7}</code> · ${trig}
+          ${repo}
+          $(link "$WF_URL" "View run")" ;;
+            *) msg="<b>ℹ️ $(esc "$EVENT")</b>
+          by $(esc "$ACTOR")" ;;
+          esac
+          .github/scripts/notify-telegram.sh "$msg"
