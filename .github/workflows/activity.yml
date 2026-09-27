@@ -40,6 +40,7 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
           FORCED: ${{ github.event.forced }}
           DELETED: ${{ github.event.deleted }}
+          CREATED: ${{ github.event.created }}
           COMMITS: ${{ join(github.event.commits.*.id, ' ') }}
           HEAD_MSG: ${{ github.event.head_commit.message }}
           COMPARE: ${{ github.event.compare }}
@@ -81,12 +82,28 @@ jobs:
               else
                 n=$(wc -w <<< "$COMMITS" | tr -d ' ')
                 word=commits; [ "$n" = 1 ] && word=commit
-                title="📤 Push"; [ "$FORCED" = true ] && title="⚠️ Force push"
-                msg="<b>${title} to $(esc "$REF_NAME")</b>
+                if [ "$CREATED" = true ]; then
+                  # A branch made on GitHub, or pushed with nothing new, has no
+                  # commits of its own; say what happened, not "0 commits".
+                  if [ "$n" = 0 ]; then
+                    msg="<b>🌱 Branch created</b>
+          ${ref} · by $(esc "$ACTOR")
+          ${repo}"
+                  else
+                    msg="<b>🌱 New branch $(esc "$REF_NAME")</b>
           <i>$(short "$HEAD_MSG")</i>
           ${n} ${word} · by $(esc "$ACTOR")
           ${repo}
           $(link "$COMPARE" "View changes")"
+                  fi
+                else
+                  title="📤 Push"; [ "$FORCED" = true ] && title="⚠️ Force push"
+                  msg="<b>${title} to $(esc "$REF_NAME")</b>
+          <i>$(short "$HEAD_MSG")</i>
+          ${n} ${word} · by $(esc "$ACTOR")
+          ${repo}
+          $(link "$COMPARE" "View changes")"
+                fi
               fi ;;
             pull_request)
               case "$PR_ACTION" in
